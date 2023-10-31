@@ -1,5 +1,5 @@
 const express = require('express');
-const knex = require('knex');
+const knex = require('./cnx');
 const bcrypt = require('bcrypt');
 require('dotenv').config()
 const app = express();
