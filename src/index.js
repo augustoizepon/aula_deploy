@@ -20,7 +20,7 @@ app.post('/pessoas', async (req, res) => {
     try {
         const { nome, senha } = req.body
         const senhaCrypt = await bcrypt.hash(senha, 10)
-        knex('pessoas').insert({ nome: nome, pwd: senhaCrypt })
+        await knex('pessoas').insert({ nome: nome, pwd: senhaCrypt })
         res.json('criado com sucesso')
     } catch (error) {
         console.log(error.message)
