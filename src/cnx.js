@@ -1,5 +1,5 @@
 const knex = require('knex')({
-    client: 'postgres',
+    client: 'pg',
     connection:{
         host : 'ec2-44-212-250-48.compute-1.amazonaws.com',
         port : 5432,
