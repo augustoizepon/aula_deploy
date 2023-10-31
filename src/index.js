@@ -9,10 +9,10 @@ app.use(express.json())
 
 app.get('/pessoas', async (req, res) => {
     try {
-        const pessoaslist = await knex('pessoas').select('*')
-        res.json(pessoaslist)
+        const pessoaslist = await knex('pessoas')
+       return res.json(pessoaslist)
     } catch (error) {
-        console.log(error.message)
+        return res.json(error.message)
     }
 })
 
@@ -21,9 +21,9 @@ app.post('/pessoas', async (req, res) => {
         const { nome, senha } = req.body
         const senhaCrypt = await bcrypt.hash(senha, 10)
         await knex('pessoas').insert({ nome: nome, pwd: senhaCrypt })
-        res.json('criado com sucesso')
+        return res.json('criado com sucesso')
     } catch (error) {
-        console.log(error.message)
+        return res.json(error.message)
     }
 })
 
